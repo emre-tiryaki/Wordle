@@ -1,76 +1,64 @@
-```
- __        __   _                            _          _____ _                 
- \ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___   |  ___(_)_ __   ___ _ __ 
-  \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \  | |_  | | '_ \ / _ \ '__|
-   \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) | |  _| | | | | |  __/ |   
-    \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  |_|   |_|_| |_|\___|_|   
-                                                                                 
-```
+# Wordle Java Game
 
-# Wordle Clone in Java
+A simple, console-based Wordle game implemented in Java. The game dynamically fetches random words from an external API based on the specified word length, providing an interactive and enjoyable guessing experience. I made this just for fun its not a serious project.
 
-## Description
+---
 
-This is a simple console-based Wordle clone implemented in Java. The game gives the player **5 chances** to guess a hidden word. After each guess, the game provides visual feedback using symbols:
-- **✔**: Correct letter in the correct position.
-- **❔**: Correct letter in the wrong position.
-- **❌**: Incorrect letter.
+## Project Structure
 
-The project is structured in a way that you can later integrate an API to fetch the word dynamically, replacing the hardcoded value.
+- **Main.java:**
+  - Handles the game's main loop, user input validation, and gameplay flow.
+  - Prompts the user to input the word length (between 2 and 15 characters).
+  - Provides 5 attempts for the user to guess the word, displaying intuitive symbols as feedback.
+
+- **Game.java:**
+  - Manages core game logic including word checking and user feedback.
+  - Interacts with `DatabaseContact` to obtain words.
+
+- **DatabaseContact.java:**
+  - Connects to the [Random Word API](https://random-word-api.herokuapp.com/) to retrieve random words of a specified length.
+  - Handles HTTP requests and responses, ensuring reliable word fetching.
+
+---
 
 ## How to Play
 
-1. **Objective:** Guess the hidden word within 5 attempts.
-2. **Input:** Type your guess and press Enter.
-3. **Feedback:**  
-   - A **✔** symbol indicates that the letter is in the correct spot.  
-   - A **❔** symbol means the letter is in the word but in a different position.  
-   - A **❌** symbol shows that the letter is not in the word.
-4. **Win Condition:** If you guess the word correctly, you will receive a congratulatory message.
-5. **Restart:** After completing a round, you can choose to play again by entering `y` or quit with `n`.
+1. **Start the Game:** Run the `Main` class.
+2. **Choose Word Length:** Enter a word length between 2 and 15.
+3. **Guess the Word:** You have 5 attempts.
+   - **✔** indicates the letter is in the correct position.
+   - **❔** indicates the letter exists but in the wrong position.
+   - **❌** indicates the letter does not exist in the word.
+4. **Play Again:** After each round, choose whether to play another round.
 
-## Getting Started
+---
 
-### Prerequisites
+## Installation & Usage
 
-- **Java Development Kit (JDK)**: Ensure you have JDK 8 or above installed.
-- A terminal or command prompt for running the game.
+### Clone Repository
+```bash
+git clone https://github.com/emre-tiryaki/Wordle.git
+cd Wordle
+```
 
-### Installation
+### Compile & Run
+```bash
+javac Main.java Game.java DatabaseContact.java
+java Main
+```
 
-1. **Clone the Repository:**
+---
 
-   ```bash
-   git clone https://github.com/yourusername/wordle-clone-java.git
-   ```
+## Requirements
 
-2. **Navigate to the Project Directory:**
+- Java Development Kit (JDK 8+)
+- Internet Connection (required for API access)
 
-   ```bash
-   cd wordle-clone-java
-   ```
-
-3. **Compile the Code:**
-
-   ```bash
-   javac Main.java Game.java
-   ```
-
-4. **Run the Game:**
-
-   ```bash
-   java Main
-   ```
-
-## Code Structure
-
-- **Game.java**  
-  Contains the `Game` class which holds the hidden word and its length.  
-  Future plans include integrating an API to dynamically retrieve the word.
-
-- **Main.java**  
-  Manages the game loop and user interactions. It reads user input, checks the guess against the hidden word, and displays feedback using symbols.
+---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is open-source and available under the MIT License.
+
+Enjoy playing and happy coding!
+
